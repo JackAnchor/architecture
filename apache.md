@@ -2,20 +2,8 @@
 
 Apache is a web server software that's pre-installed with a Mac. Web servers (Apache) serve files, but they first must be requested by users (clients).
 
-**Remember** Understand where Apache is running from to prevent conflicts and debug efficiently (MAMP, Mac, Homebrew)
+**Remember** to nderstand where Apache is running from to prevent conflicts and debug efficiently (MAMP, Mac, Homebrew).
 
-### Apache Configuration File
-Conceptually, .htaccess files override the main server configuration file Using .htaccess files also slows down your Apache server, so avoid if possible To work, .htaccess must be enabled in your pre-installed Apache configuration file. Most functionality is "commented out".
-
-**Remember:** the ‘Main' server configuration can be overridden by <VirtualHost> definitions and containers
-
-### Apache Modifications & .htaccess File
-- Website needs Apache rewriting permissions (404 error, redirection, etc.) 
-- The .htaccess file is an Apache (web server) configuration file that controls these rewriting permissions
-- The .htaccess is a hidden “dot” file
-- Some plugins must access and modify the htaccess file (301 redirection, SSL ), etc. 
-- The .htaccess file should be **secure.** Explore ’ASCII’vs. ’BINARY’ mode to securely upload/transfer files.
-- The .htaccess file should be **writable** and **executable.** Explore permissions (i.e. ’755’ or ‘executable’) to address.
 
 ## What can Apache deliver?
 Some functionality includes:
@@ -29,6 +17,19 @@ Some functionality includes:
 - Default Charset
 - Server Signature
 - Force Download
+
+
+## Apache Configuration Files
+Conceptually, .htaccess files override the main server configuration file Using .htaccess files also slows down your Apache server, so avoid if possible To work, .htaccess must be enabled in your pre-installed Apache configuration file. Most functionality is "commented out" by deleting '#'.
+
+**Remember:** the ‘Main' server configuration can be overridden by <VirtualHost> definitions and containers
+
+### Apache .htaccess File
+The .htaccess file is an Apache alternative configuration file for Apache. It controls rewriting and other permissions (404 error, redirection, etc.) commonly used by CMS. Additional facts:
+- The .htaccess is a hidden “dot” file
+- Some plugins must access and modify the htaccess file (301 redirection, SEO, SSL plugins) 
+- The .htaccess file should be **secure.** Explore ’ASCII’vs. ’BINARY’ mode to securely upload/transfer files.
+- The .htaccess file should be **writable** and **executable.** Explore permissions (i.e. ’755’ or ‘executable’) to address.
 
 
 #### Terminal Start / Stop Apache
