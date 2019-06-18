@@ -1,12 +1,7 @@
-# apache notes
-
-Apache is a web server software that's pre-installed with a Mac. Web servers (Apache) serve files, but they first must be requested by users (clients).
-
-**Remember** to nderstand where Apache is running from to prevent conflicts and debug efficiently (MAMP, Mac, Homebrew).
-
+# Apache notes
+Apache is a web server software that's pre-installed with a Mac. Web servers (Apache) serve files, but they first must be requested by users (clients).  To **prevent conflicts** and **debug** efficiently, it's important to understand where Apache is running from **(MAMP, Mac, Homebrew)** and whether it's running or needs restarting.
 
 ## What can Apache deliver?
-Some functionality includes:
 - Set Default Directory for URLs
 - Set Default Language
 - Password Protect Login
@@ -58,13 +53,13 @@ which -a apachectl
 
 #### Server Directory
 You can deny access to the entirety of your server's filesystem
-You must explicitly permit access to web content directories in other Directory blocks. Existing code:
-		```
-		<Directory />
-		    AllowOverride none
-		    Require all denied
-		</Directory>
-		```
+You must explicitly permit access to web content directories in other Directory blocks.
+```
+<Directory />
+AllowOverride none
+Require all denied
+</Directory>
+```
 
 #### Document Root
 - The directory out of which you will serve your documents
@@ -72,8 +67,9 @@ You must explicitly permit access to web content directories in other Directory 
 ```
 	DocumentRoot "/Users/user/Sites"
 	<Directory "/Users/user/Sites">
-  	<—— additional code —->
+  	<—— .code —->
 ```
+
 #### Options Directive
 ```
   Options FollowSymLinks Multiviews
@@ -82,7 +78,7 @@ You must explicitly permit access to web content directories in other Directory 
   Allow Overrides & htaccess 
 	AllowOverride None
 	Require all granted
-    <—— end nested code —->
+    <—— .end code —->
     </Directory>
   ```
 
@@ -106,11 +102,11 @@ To prevent .htaccess viewed by Web clients.
 #### Apple specific filesystem protection
 ```
 <Files "rsrc">
-	Require all denied
+Require all denied
 </Files>
 <DirectoryMatch ".*\.\.namedfork">
-	Require all denied
-  </DirectoryMatch>
+  Require all denied
+</DirectoryMatch>
  ```
 
 #### Error Logs Files
@@ -135,8 +131,8 @@ Should be changed to whatever your ScriptAliased CGI directory exists, if you ha
 ```
 <Directory "/Library/WebServer/CGI-Executables">
    AllowOverride None
- 		Options None
-   	Require all granted
+   Options None
+  Require all granted
 </Directory>
 ```
 
@@ -217,8 +213,8 @@ but a statically compiled-in mod_ssl.
 
 ```
 <IfModule ssl_module>
-	SSLRandomSeed startup builtin
-	SSLRandomSeed connect builtin
+ SSLRandomSeed startup builtin
+ SSLRandomSeed connect builtin
 </IfModule>
 Include /private/etc/apache2/other/*.conf
 ```
