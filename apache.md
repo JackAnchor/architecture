@@ -15,7 +15,9 @@ Apache is a web server software that's pre-installed with a Mac. Web servers (Ap
 
 
 ## Apache Configuration Files
-Conceptually, .htaccess files override the main server configuration file Using .htaccess files also slows down your Apache server, so avoid if possible To work, .htaccess must be enabled in your pre-installed Apache configuration file. Most functionality is "commented out" by deleting '#'.
+Conceptually, .htaccess file overrides the main server configuration file. Using this file slows-down your Apache server, so it's best to avoid if possible. It's often required by most CMS systems.
+
+To work, .htaccess must be enabled in your pre-installed Apache configuration file. Most functionality is "commented out" by deleting '#'.
 
 **Remember:** the ‘Main' server configuration can be overridden by <VirtualHost> definitions and containers
 
@@ -25,6 +27,13 @@ The .htaccess file is an Apache alternative configuration file for Apache. It
 - Some plugins must access and modify the htaccess file (301 redirection, SEO, SSL plugins) 
 - The .htaccess file should be **secure.** Explore ’ASCII’vs. ’BINARY’ mode to securely upload/transfer files.
 - The .htaccess file should be **writable** and **executable.** Explore permissions (i.e. ’755’ or ‘executable’) to address.
+
+
+### SEO friendly URLs and Apache
+Having a website with "SEO friendly URLs" is a fairly straightforward concept. Informative, user-friendly urls have been known to impact click-through-rates on search. If you're unfamiliar, [Google provides some resources here.](http://www.google.com/support/webmasters/bin/answer.py?answer=76329)
+
+Apache mod_rewrite can help you convert URLs into a more SEO-friendly format. http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite
 
 
 #### Terminal Start / Stop Apache
